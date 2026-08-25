@@ -1,0 +1,173 @@
+{
+  "theme": "Warm Opulence",
+  "typography": {
+    "fonts": {
+      "display": "Cormorant Garamond",
+      "heading": "Playfair Display",
+      "body": "Poppins"
+    },
+    "rules": {
+      "display_weights": "300, 400 (light)",
+      "heading_weights": "600 (semi-bold)",
+      "body_weights": "300, 400",
+      "hero_title": "clamp(44px, 7vw, 84px)",
+      "labels": "Poppins uppercase, tracking-[4px] to tracking-[6px] with decorative dash '— OUR SERVICES'",
+      "nav": "Poppins 13px uppercase, tracking-[2px]",
+      "accent_words": "Cormorant Garamond italic"
+    }
+  },
+  "colors": {
+    "bg-primary": "#0A0A0A",
+    "bg-secondary": "#111111",
+    "bg-warm": "#0F0D0A",
+    "bg-elevated": "#1A1815",
+    "bg-cream": "#F7EFE2",
+    "bg-cream-subtle": "#FDF8F0",
+    "accent-gold": "#C8A44E",
+    "accent-gold-light": "#D4B76A",
+    "accent-gold-warm": "#D4A574",
+    "accent-rose": "#C9A0A0",
+    "accent-sage": "#8FAE8B",
+    "text-primary": "#FAF5EF",
+    "text-secondary": "#B8B0A4",
+    "text-muted": "#7A7268",
+    "text-dark": "#1A1815",
+    "border-subtle": "rgba(200, 164, 78, 0.15)",
+    "cta-gradient": "linear-gradient(135deg, #C8A44E, #D4B76A, #C8A44E)"
+  },
+  "visual_enhancers": {
+    "glassmorphism": "background: rgba(212, 175, 120, 0.04); backdrop-filter: blur(20px); border: 1px solid rgba(200, 164, 78, 0.15);",
+    "dividers": "1px solid rgba(200, 164, 78, 0.15) with diamond ◆ ornament in the center",
+    "overlays": "Subtle grain/noise overlay on dark backgrounds. Ambient radial gold glow behind key elements.",
+    "image_treatment": "filter: brightness(0.95) saturate(1.1) contrast(1.05); border-radius: 12px to 20px;",
+    "hover_effects": {
+      "cards": "transform: translateY(-4px); box-shadow: 0 0 15px rgba(200,164,78,0.3); border-color: #D4B76A;",
+      "images": "transform: scale(1.05); transition: transform 0.6s ease;"
+    },
+    "buttons": "Pill-shaped CTAs, rounded-full, background: linear-gradient(135deg,#C8A44E,#D4B76A,#C8A44E), text: uppercase Poppins 13px-14px tracking-[1.5px], include arrow →"
+  },
+  "layouts": {
+    "container": "max-width: 1320px; margin: 0 auto; padding: 0 1.5rem;",
+    "rhythm": "Alternate between dark sections (bg-primary/bg-secondary) and warm cream sections (bg-cream/bg-cream-subtle) for visual rhythm",
+    "cards": "6 circular service category cards, 3 membership pricing cards (Gold highlighted POPULAR)"
+  },
+  "pages": {
+    "Home": [
+      "Hero: Full-screen kinetic with staggered word reveal + Ken Burns background + marquee ticker",
+      "Services Overview: 6 circular service category cards",
+      "About Preview: Count-up stats on cream background",
+      "Signature Treatments: Horizontal drag-scroll",
+      "Cinematic CTA: Parallax banner",
+      "Packages Preview: 3 membership pricing cards (Gold highlighted POPULAR)",
+      "Gallery Preview: Masonry gallery",
+      "Testimonials: Auto-play slider",
+      "How-it-works: 3-step with numbered gold circles",
+      "Instagram feed grid",
+      "Footer: Editorial with massive outlined BRANDROOT watermark"
+    ],
+    "About": "Full page details with team and salon history",
+    "Services": "Detailed service lists",
+    "Packages": "Detailed pricing plans: ₹32K Silver / ₹55K Gold / ₹75K Platinum",
+    "Gallery": "Filterable masonry with lightbox",
+    "Contact": "Map + form",
+    "Book Appointment": "Booking form"
+  },
+  "components": [
+    {
+      "name": "Navbar",
+      "instructions": "Sticky, transparent initially, transitions to blurred dark background on scroll. Contains Logo, Nav Links, Book CTA."
+    },
+    {
+      "name": "Hero",
+      "instructions": "Ken Burns effect on background image. Staggered reveal for H1 title (Cormorant Garamond). Title clamp(44px,7vw,84px)."
+    },
+    {
+      "name": "ServiceCategoryCard",
+      "instructions": "Circular image with gold border on hover. Title below."
+    },
+    {
+      "name": "SignatureTreatmentScroll",
+      "instructions": "Horizontal drag-scroll list of signature treatments. Framer motion drag='x'."
+    },
+    {
+      "name": "PricingCard",
+      "instructions": "Glassmorphism cards. Highlight 'Gold' with gold border/glow and 'POPULAR' badge."
+    },
+    {
+      "name": "FloatingActions",
+      "instructions": "Floating WhatsApp/Phone/BackToTop buttons fixed at bottom-right."
+    }
+  ],
+  "motion": {
+    "scroll": "Lenis smooth scroll mandatory.",
+    "animations": "Framer Motion. Use staggered reveals for text, Ken Burns for hero backgrounds, parallax for cinematic CTA, marquee ticker for editorial text, count-up for stats."
+  },
+  "accessibility": {
+    "contrast": "Ensure text meets contrast ratios against dark and cream backgrounds. Use Text Shadow on hero text if needed.",
+    "motion": "Respect prefers-reduced-motion for heavy animations like Ken Burns and parallax."
+  },
+  "media": {
+    "image_urls": [
+      {
+        "url": "https://images.unsplash.com/photo-1761470575018-135c213340eb?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1MDZ8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBzcGElMjBpbnRlcmlvciUyMGRhcmslMjB3YXJtJTIwbGlnaHRpbmd8ZW58MHx8fHwxNzg3NjQzMTY4fDA&ixlib=rb-4.1.0&q=85",
+        "description": "Luxury Spa Steam Room - Hero Background",
+        "category": "Hero"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1598901986949-f593ff2a31a6?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1ODR8MHwxfHNlYXJjaHwxfHxtYXNzYWdlJTIwdGhlcmFweSUyMHNwYSUyMGNhbmRsZWxpdHxlbnwwfHx8fDE3ODc2NDMxNjd8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Facial/Massage Spa - Services/Signature Treatments",
+        "category": "Services"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1580618672591-eb180b1a973f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzZ8MHwxfHNlYXJjaHwxfHxzYWxvbiUyMGhhaXIlMjBzdHlsaW5nJTIwdXBzY2FsZXxlbnwwfHx8fDE3ODc2NDMxNjd8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Hair Styling Upscale - Services",
+        "category": "Services"
+      },
+      {
+        "url": "https://images.pexels.com/photos/853427/pexels-photo-853427.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "description": "Upscale Salon Interior - About Preview / Gallery",
+        "category": "About"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1706795033849-7ca391f007c5?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1ODR8MHwxfHNlYXJjaHw0fHxtYXNzYWdlJTIwdGhlcmFweSUyMHNwYSUyMGNhbmRsZWxpdHxlbnwwfHx8fDE3ODc2NDMxNjd8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Spa Towels and Candles - Packages / Services",
+        "category": "Packages"
+      },
+      {
+        "url": "https://images.pexels.com/photos/3998000/pexels-photo-3998000.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "description": "Back Massage - Gallery / Treatments",
+        "category": "Treatments"
+      },
+      {
+        "url": "https://images.pexels.com/photos/36177119/pexels-photo-36177119.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "description": "Sauna Wooden Interior - Cinematic CTA / Gallery",
+        "category": "CTA"
+      }
+    ]
+  },
+  "instructions_to_main_agent": [
+    "Install and setup @studio-freight/react-lenis or lenis for smooth scrolling.",
+    "Implement Framer Motion for scroll reveals, staggered reveals, and parallax.",
+    "Use lucide-react or @phosphor-icons/react for UI icons.",
+    "Use standard Tailwind classes mapped to CSS variables for the color system.",
+    "Create a global layout wrapper with the noise overlay and ambient radial glow.",
+    "For horizontal drag-scroll in 'Signature Treatments', use framer-motion drag='x' with dragConstraints.",
+    "Do not use generic Shadcn cards for marketing sections; build custom HTML/Tailwind components to support glassmorphism and gold borders.",
+    "Implement the 'diamond ◆' divider using an ::after/::before pseudo-element or a custom SVG.",
+    "Alternate sections with dark vs. warm cream backgrounds as explicitly requested.",
+    "Include data-testid attributes on all interactive and key informational elements."
+  ],
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "You tend to converge toward generic, 'on distribution' outputs. In frontend design, this creates what users call the 'AI slop' aesthetic. Avoid this: make creative, distinctive frontends that surprise and delight.",
+    "Dark colors look good when used independently without gradients. DO NOT use dark colors as gradients",
+    "Don't make generic centered layouts, simplistic gradients, and uniform styling.",
+    "Create depth through layered design elements with z-index hierarchy",
+    "Use glass-morphism effects with backdrop filters (20px blur) as per guidelines.",
+    "You MUST NOT apply universal transition. Eg: `transition: all`. Always add transitions for specific interactive elements.",
+    "You MUST NOT center align the app container. Do not add `.App { text-align: center; }` in the css file.",
+    "NEVER: use AI assistant Emoji characters like 🤖🧠💭💡🔮🎯 etc for icons.",
+    "Every interaction needs micro-animations - hover states, transitions, parallax effects.",
+    "Use generous spacing (p-12 to p-24) to establish a premium luxury feel.",
+    "Include data-testid attributes on all interactive and key informational elements."
+  ]
+}

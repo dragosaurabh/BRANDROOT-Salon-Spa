@@ -1,0 +1,41 @@
+# PRD — BrandRoot Salon & Spa Ltd. Website
+
+## Original Problem Statement
+Complete rebuild of brandrootsalon.com: a jaw-droppingly beautiful, mobile-first, multi-page luxury website for BrandRoot Salon & Spa Ltd., Nashik (opp. City Centre Mall). "Warm Opulence" aesthetic — deep dark luxury + warm golden radiance (candlelit spa feel). Awwwards-level design. Purely static frontend (no CMS/backend). Real content only: 4.8★ / 350+ reviews, ₹32K/₹55K/₹75K memberships, 5 real testimonials, correct phone/address/WhatsApp.
+
+## Architecture
+- React (CRA) + React Router (7 routes), frontend-only — backend is default template, intentionally unused
+- Framer Motion (reveals, page transitions, parallax, sliders), Lenis smooth scroll
+- Vanilla CSS design tokens in index.css; component styles in App.css + styles/pages.css
+- Fonts: Cormorant Garamond / Playfair Display / Poppins (Google Fonts)
+- 30 AI-generated luxury spa images hosted on emergent static CDN (src/data/images.js)
+- Data-driven content: src/data/{content,services,packages,gallery,images}.js
+- SEO: meta, OG tags, BeautySalon Schema.org JSON-LD in public/index.html
+
+## User Personas
+- Nashik locals seeking premium salon/spa services (booking intent)
+- Brides & families researching bridal/pre-bridal packages
+- Wellness enthusiasts comparing membership plans
+
+## Core Requirements (static)
+- Pages: Home, About, Services, Packages, Gallery (filter + lightbox), Contact (map + form), Appointment (form)
+- Floating WhatsApp/Phone/BackToTop; sticky transparent→blurred navbar; full-screen mobile menu
+- Forms are static: validate client-side → success message; appointment success offers prefilled WhatsApp confirm link
+- Package "Buy Now" → prefilled WhatsApp inquiry links
+
+## Implemented (June 2026 — MVP complete)
+- All 7 pages with full home blueprint (hero w/ masked line reveal + Ken Burns + marquee, 6 circular category cards, about preview w/ count-up stats, drag-scroll signature treatments, parallax cinematic CTA, packages preview w/ Gold POPULAR, masonry gallery preview, auto-play testimonial slider w/ swipe, 3-step how-it-works, Instagram grid, editorial footer w/ BRANDROOT outline watermark)
+- Gallery filters (All/Hair/Skin/Spa/Makeup/Nails/Ambience) + lightbox (arrows, Escape)
+- Contact & Appointment forms with validation/shake/success states
+- Mobile-first verified at 320/390px; no horizontal overflow; no console errors
+- Testing agent iteration_1: 100% pass
+
+## Backlog / Remaining
+- P1: Save appointment/contact submissions to backend (FastAPI + Mongo) with an owner inbox
+- P1: Sticky mobile bottom "Book Now" bar
+- P2: Dark-themed Google Map styling, blur-up image placeholders, og-image asset
+- P2: Real Instagram feed embed, real Facebook/YouTube URLs when provided by owner
+
+## Next Tasks
+- Collect real salon photos from owner to replace AI imagery where desired
+- Optional backend persistence for bookings
