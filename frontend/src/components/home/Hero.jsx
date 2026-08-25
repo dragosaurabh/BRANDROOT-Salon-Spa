@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { IMG } from "@/data/images";
-import { Crest } from "@/components/ui/Crest";
 
 const ease = [0.22, 1, 0.36, 1];
 
@@ -56,20 +55,11 @@ export const Hero = () => {
     <div className="hero-content">
       <motion.div
         className="hero-crest"
-        initial={{ opacity: 0, scale: 0.7, y: 10 }}
+        initial={{ opacity: 0, scale: 0.85, y: 12 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
-        transition={{ duration: 1, delay: 0.05, ease }}
+        transition={{ duration: 1.1, delay: 0.05, ease }}
       >
-        <Crest size={48} />
-      </motion.div>
-
-      <motion.div
-        className="ornament"
-        initial={{ opacity: 0, scaleX: 0.4 }}
-        animate={{ opacity: 1, scaleX: 1 }}
-        transition={{ duration: 0.8, delay: 0.2, ease }}
-      >
-        <span>◆</span>
+        <img src="/assets/logo-mark.png" alt="BrandRoot ornamental golden emblem" className="hero-logo-mark" />
       </motion.div>
 
       <motion.p

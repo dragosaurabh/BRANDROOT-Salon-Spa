@@ -8,7 +8,7 @@ export const AboutPreview = () => (
     <div className="container about-grid">
       <div className="about-img-col">
         <Reveal className="about-img-wrap">
-          <img src={IMG.aboutInterior} alt="BrandRoot luxury spa reception with marble counter and warm brass lighting" loading="lazy" className="img-warm" />
+          <img src={IMG.realLounge} alt="BrandRoot Salon & Spa waiting lounge with classic furniture and chandelier" loading="lazy" className="img-warm" />
           <div className="about-badge" data-testid="about-rating-badge">
             <Star size={15} fill="currentColor" /> 4.8★ Google Rating
           </div>

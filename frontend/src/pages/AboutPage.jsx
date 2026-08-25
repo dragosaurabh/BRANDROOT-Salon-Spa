@@ -26,7 +26,7 @@ export default function AboutPage() {
       <section className="section cream-section" data-testid="about-story-section">
         <div className="container story-grid">
           <Reveal>
-            <img src={IMG.aboutInterior} alt="BrandRoot Salon & Spa luxury interior with marble and warm brass lighting" loading="lazy" className="img-warm" />
+            <img src={IMG.realLogoWall} alt="The BrandRoot emblem glowing on the salon's backlit reception wall" loading="lazy" className="img-warm" style={{ borderRadius: 20, width: "100%", aspectRatio: "4/3", objectFit: "cover" }} />
           </Reveal>
           <div className="story-text">
             <Reveal>

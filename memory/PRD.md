@@ -36,6 +36,12 @@ Complete rebuild of brandrootsalon.com: a jaw-droppingly beautiful, mobile-first
 - Premium hero/nav: gold crest SVG monogram (ui/Crest.jsx) in navbar + hero + mobile menu, mouse-parallax hero bg, shimmer on "Wellness", corner frames, gold button sheen sweep, numbered mobile menu links
 - Testing agent iteration_2: 100% pass (7/7)
 
+## Iteration 3 (June 2026) — Real Branding & Design Elevation
+- Real BrandRoot logo integrated: recreated owner's ornate sun-crest emblem as transparent PNGs (/public/assets/logo-full.png, logo-mark.png, logo-icon.png via /app/scripts/process_logo.py chroma-key pipeline); used in navbar, hero, mobile menu, footer, favicon
+- Real salon photos (customer assets) used in About preview (lounge), About story (backlit logo wall), Gallery Ambience (3 real photos)
+- Footer credits: removed ✨ emoji → lucide Gem icon; added "Powered by Ready2UP" (ready2up.com) and "Designed by dragosaurabh" (dragosaurabh.com)
+- Polish: gold scroll-progress bar under navbar, compact mobile spacing (76px sections, 20px gutters), slower marquee (64s), smoother cubic-bezier button easing, hero preload + favicon, tighter cards/footer
+
 ## Backlog / Remaining
 - P1: Save appointment/contact submissions to backend (FastAPI + Mongo) with an owner inbox
 - P1: Sticky mobile bottom "Book Now" bar

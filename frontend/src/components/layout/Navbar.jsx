@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import { NavLink, Link, useLocation } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll } from "framer-motion";
 import { X, Instagram, Facebook, Youtube } from "lucide-react";
 import { NAV_LINKS, COMPANY } from "@/data/content";
-import { Crest } from "@/components/ui/Crest";
 
 export const Navbar = ({ topOffset = 0 }) => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const location = useLocation();
+  const { scrollYProgress } = useScroll();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -27,9 +27,10 @@ export const Navbar = ({ topOffset = 0 }) => {
   return (
     <>
       <header className={`nav ${scrolled ? "scrolled" : ""}`} style={{ top: topOffset }}>
+        <motion.div className="nav-progress" style={{ scaleX: scrollYProgress }} aria-hidden="true" />
         <div className="container nav-inner">
           <Link to="/" className="nav-logo" data-testid="nav-logo" aria-label="BrandRoot Salon & Spa — Home">
-            <Crest size={32} className="nav-crest" />
+            <img src="/assets/logo-icon.png" alt="" className="nav-logo-img" />
             <span className="nav-logo-text">
               <span className="brand">BRANDROOT</span>
               <span className="brand-sub">Salon &amp; Spa</span>
@@ -88,9 +89,9 @@ export const Navbar = ({ topOffset = 0 }) => {
               initial={{ opacity: 0, y: -14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1, duration: 0.5 }}
-              style={{ color: "var(--accent-gold)", marginBottom: 18, textAlign: "center" }}
+              style={{ textAlign: "center" }}
             >
-              <Crest size={44} />
+              <img src="/assets/logo-mark.png" alt="BrandRoot ornamental emblem" className="menu-logo-img" />
             </motion.div>
             {NAV_LINKS.map((l, i) => (
               <motion.div

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Instagram, Facebook, Youtube, MessageCircle, MapPin, Clock, Mail, Phone, ArrowUp, ArrowRight } from "lucide-react";
+import { Instagram, Facebook, Youtube, MessageCircle, MapPin, Clock, Mail, Phone, ArrowUp, ArrowRight, Gem } from "lucide-react";
 import { COMPANY, NAV_LINKS } from "@/data/content";
 import { SERVICE_CATEGORIES } from "@/data/services";
 import { scrollToTop } from "@/hooks/useSmoothScroll";
@@ -11,10 +11,7 @@ export const Footer = () => (
     </div>
     <div className="container">
       <div className="footer-top">
-        <div className="ornament" aria-hidden="true">
-          <span>◆</span>
-        </div>
-        <div className="footer-logo">BRANDROOT</div>
+        <img src="/assets/logo-full.png" alt="BrandRoot Salon & Spa Ltd. golden emblem" className="footer-logo-img" loading="lazy" />
         <p className="footer-tagline">{COMPANY.tagline}</p>
       </div>
 
@@ -91,7 +88,19 @@ export const Footer = () => (
     <div className="footer-bottom">
       <div className="container footer-bottom-inner">
         <span>© 2026 BrandRoot Salon &amp; Spa Ltd. All Rights Reserved.</span>
-        <span>Designed with ✨ in Nashik</span>
+        <span className="footer-credits">
+          <span className="crafted">
+            Crafted with <Gem size={11} /> in Nashik
+          </span>
+          <span className="dot">◆</span>
+          <a href="https://ready2up.com" target="_blank" rel="noopener noreferrer" data-testid="footer-ready2up-link">
+            Powered by <b>Ready2UP</b>
+          </a>
+          <span className="dot">◆</span>
+          <a href="https://dragosaurabh.com" target="_blank" rel="noopener noreferrer" data-testid="footer-dragosaurabh-link">
+            Designed by <b>dragosaurabh</b>
+          </a>
+        </span>
         <button className="back-top-inline" onClick={() => scrollToTop()} data-testid="footer-back-to-top-btn">
           Back to Top <ArrowUp size={13} />
         </button>

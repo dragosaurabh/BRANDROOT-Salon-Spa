@@ -31,4 +31,7 @@ export const IMG = {
   pkgSilver: `${BASE}/384d94b68db3f9c9140c00f46ac4cf144febd5dc9d12d66dfb4f31e1d1325576.jpeg`,
   pkgGold: `${BASE}/84b522b365350fff78ed6e03d1b89d9d3af62ed157aa934f48cd50c77cc4af62.jpeg`,
   pkgPlatinum: `${BASE}/c8cc0fea0d901bc9e8387748ccd8f23cf8f167e442c44fc9f96d51fb7730c429.jpeg`,
+  realLogoWall: "https://customer-assets-4nw71qhi.emergentagent.net/job_luxury-salon-nashik-2/artifacts/sum5fx9l_image.png",
+  realLounge: "https://customer-assets-4nw71qhi.emergentagent.net/job_luxury-salon-nashik-2/artifacts/r568tzfd_image.png",
+  realLogoAngle: "https://customer-assets-4nw71qhi.emergentagent.net/job_luxury-salon-nashik-2/artifacts/7a2qnqb9_image.png",
 };
