@@ -3,6 +3,7 @@ import { ArrowRight, Award, ShieldCheck, Lightbulb, HeartHandshake, Star, Gem, U
 import { PageHero } from "@/components/layout/PageHero";
 import { SectionHeader, Reveal } from "@/components/ui/Bits";
 import { IMG } from "@/data/images";
+import { usePageMeta } from "@/hooks/usePageMeta";
 
 const VALUES = [
   { num: "01", icon: Award, title: "Excellence", desc: "Every cut, every facial, every massage is delivered to the highest professional standard — nothing less." },
@@ -19,6 +20,10 @@ const WHY = [
 ];
 
 export default function AboutPage() {
+  usePageMeta(
+    "About Us | BrandRoot Salon & Spa Nashik — 4.8★ Rated Luxury Salon",
+    "The story of BrandRoot Salon & Spa Ltd. — Nashik's family-run luxury salon opposite City Centre Mall. Our values, expert team and 4.8★ rated premium care."
+  );
   return (
     <>
       <PageHero title="About Us" crumb="About Us" />

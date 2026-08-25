@@ -23,7 +23,7 @@ export const GalleryPreview = () => {
           {HOME_GALLERY.map((item, i) => (
             <motion.div
               key={item.src}
-              className="masonry-item"
+              className={`masonry-item ${item.tall ? "tall" : ""}`}
               initial={{ opacity: 0, y: 26 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-30px" }}

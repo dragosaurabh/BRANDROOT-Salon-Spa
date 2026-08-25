@@ -4,8 +4,13 @@ import { ArrowRight, Download } from "lucide-react";
 import { PageHero } from "@/components/layout/PageHero";
 import { Reveal } from "@/components/ui/Bits";
 import { SERVICE_CATEGORIES } from "@/data/services";
+import { usePageMeta } from "@/hooks/usePageMeta";
 
 export default function ServicesPage() {
+  usePageMeta(
+    "Our Services | Hair, Skin, Spa, Bridal, Nails & Men's Grooming in Nashik",
+    "Explore BrandRoot's complete service menu — expert haircuts & colour, O3+ organic facials, relaxing spa massages, HD bridal makeup, nail art and men's grooming in Nashik."
+  );
   const { hash } = useLocation();
 
   useEffect(() => {

@@ -4,11 +4,16 @@ import { PageHero } from "@/components/layout/PageHero";
 import { SectionHeader, Reveal } from "@/components/ui/Bits";
 import { COMPANY, TIME_SLOTS } from "@/data/content";
 import { SERVICE_CATEGORIES } from "@/data/services";
+import { usePageMeta } from "@/hooks/usePageMeta";
 
 const EMPTY = { name: "", email: "", phone: "", service: "", date: "", time: "", notes: "" };
 const TODAY = new Date().toISOString().split("T")[0];
 
 export default function AppointmentPage() {
+  usePageMeta(
+    "Book Appointment | BrandRoot Salon & Spa Nashik",
+    "Book your appointment at BrandRoot Salon & Spa Nashik — choose your service, date and time slot. Instant confirmation on WhatsApp. Open daily 10 AM – 9 PM."
+  );
   const [form, setForm] = useState(EMPTY);
   const [errors, setErrors] = useState({});
   const [booked, setBooked] = useState(false);

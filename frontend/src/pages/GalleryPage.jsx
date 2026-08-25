@@ -4,8 +4,13 @@ import { X, ArrowLeft, ArrowRight, Eye } from "lucide-react";
 import { PageHero } from "@/components/layout/PageHero";
 import { SectionHeader } from "@/components/ui/Bits";
 import { GALLERY_CATEGORIES, GALLERY_ITEMS } from "@/data/gallery";
+import { usePageMeta } from "@/hooks/usePageMeta";
 
 export default function GalleryPage() {
+  usePageMeta(
+    "Gallery | Inside Nashik's Most Luxurious Salon & Spa — BrandRoot",
+    "See inside BrandRoot Salon & Spa Nashik — luxury treatment rooms, hair transformations, bridal looks, nail art and warm golden ambience."
+  );
   const [filter, setFilter] = useState("All");
   const [lightbox, setLightbox] = useState(null);
 
@@ -56,7 +61,7 @@ export default function GalleryPage() {
               {items.map((item, i) => (
                 <motion.div
                   key={item.src}
-                  className="masonry-item"
+                  className={`masonry-item ${item.tall ? "tall" : ""}`}
                   layout
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}

@@ -4,6 +4,7 @@ import { Check, Plus, ArrowRight } from "lucide-react";
 import { PageHero } from "@/components/layout/PageHero";
 import { SectionHeader, Reveal } from "@/components/ui/Bits";
 import { PACKAGES, PACKAGE_FAQ } from "@/data/packages";
+import { usePageMeta } from "@/hooks/usePageMeta";
 
 const FaqItem = ({ item, index }) => {
   const [open, setOpen] = useState(false);
@@ -26,6 +27,10 @@ const FaqItem = ({ item, index }) => {
 };
 
 export default function PackagesPage() {
+  usePageMeta(
+    "Membership Packages | Silver ₹32,000 · Gold ₹55,000 · Platinum ₹75,000",
+    "BrandRoot 12-month wellness memberships in Nashik — Silver, Gold & Platinum plans with relaxing massages, haircuts, O3+ facials and more at exclusive savings."
+  );
   return (
     <>
       <PageHero title="Our Packages" crumb="Our Packages" />

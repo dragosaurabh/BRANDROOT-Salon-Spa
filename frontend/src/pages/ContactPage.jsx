@@ -3,10 +3,15 @@ import { MapPin, Mail, Phone, Clock, ArrowRight, CheckCircle2 } from "lucide-rea
 import { PageHero } from "@/components/layout/PageHero";
 import { SectionHeader, Reveal } from "@/components/ui/Bits";
 import { COMPANY } from "@/data/content";
+import { usePageMeta } from "@/hooks/usePageMeta";
 
 const EMPTY = { name: "", email: "", phone: "", subject: "", message: "" };
 
 export default function ContactPage() {
+  usePageMeta(
+    "Contact Us | BrandRoot Salon & Spa, Opp. City Centre Mall, Nashik",
+    "Visit BrandRoot Salon & Spa at Shreeji The Status, Opp. City Centre Mall, Nashik. Call +91 7507 515 957 or send us a message — open daily 10 AM to 9 PM."
+  );
   const [form, setForm] = useState(EMPTY);
   const [errors, setErrors] = useState({});
   const [sent, setSent] = useState(false);

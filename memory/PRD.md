@@ -47,6 +47,15 @@ Complete rebuild of brandrootsalon.com: a jaw-droppingly beautiful, mobile-first
 - Seasonal rotating headlines (HERO_SLIDES in content.js): Luxury/Wellness → Bridal Season/Perfected → Festive/Glow; masked line transitions every 7s + clickable hairline slide dots
 - Native browser scrollbar hidden globally; custom indicators: gold diamond scroll rail on right edge (desktop, ScrollIndicator.jsx) + in-hero "Scroll" line with dropping gold dot
 
+## Iteration 6 (June 2026) — Performance, SEO & AI SEO Optimization
+- Images localized + optimized: all 33 images converted to WebP (scripts/optimize_images.py) in /public/assets/img — ~2MB total vs ~15MB+ CDN JPEGs (2MB lounge photo → 58KB)
+- Mobile perf: hero <video> rendered only ≥768px (phones get Ken Burns webp poster — saves 3.5MB); route-level code splitting (React.lazy all pages except Home); Playfair font trimmed to wght 600; hero preload → local webp
+- CLS fix: masonry images locked to aspect-ratio 1/1 (tall → 3/4) via item.tall class
+- SEO: usePageMeta hook — unique title/description/canonical (brandrootsalon.com) per page; robots.txt (allows GPTBot/ClaudeBot/PerplexityBot etc), sitemap.xml, FAQPage JSON-LD added
+- AI SEO: /llms.txt with full business, services, packages, booking info
+- A11y: --text-muted contrast raised to #8b8276
+- yarn build verified passing. NOTE: PageSpeed on preview URL tests the unminified DEV server — production deploy scores much higher; canonical/sitemap point to brandrootsalon.com (production domain)
+
 ## Iteration 3 (June 2026) — Real Branding & Design Elevation
 - Real BrandRoot logo integrated: recreated owner's ornate sun-crest emblem as transparent PNGs (/public/assets/logo-full.png, logo-mark.png, logo-icon.png via /app/scripts/process_logo.py chroma-key pipeline); used in navbar, hero, mobile menu, footer, favicon
 - Real salon photos (customer assets) used in About preview (lounge), About story (backlit logo wall), Gallery Ambience (3 real photos)

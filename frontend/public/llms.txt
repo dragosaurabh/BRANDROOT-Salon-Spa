@@ -1,0 +1,38 @@
+# BrandRoot Salon & Spa Ltd.
+
+> Nashik's most luxurious salon & spa destination, located opposite City Centre Mall. 4.8★ Google rating from 350+ reviews. Family-run premium beauty & wellness brand offering hair care, skin care, spa & wellness, bridal makeup, nail studio and men's grooming services.
+
+## Business Information
+- Name: BrandRoot Salon & Spa Ltd. (BRANDROOT SALON AND SPA LTD.)
+- Tagline: Where Luxury Meets Wellness
+- Address: Shop No. 9/10/11, Shreeji The Status, Opp. City Centre Mall, Forest Colony, Parijat Nagar, Lavate Nagar, Nashik — 422002, Maharashtra, India
+- Phone / WhatsApp: +91 7507 515 957
+- Email: info@brandrootsalon.com
+- Hours: Monday – Sunday, 10:00 AM – 9:00 PM
+- Instagram: @brandrootsalonandspa (4.4K+ followers)
+- Rating: 4.8 stars on Google (350+ reviews)
+
+## Services
+- Hair Care: haircuts & styling, wash & blow dry, color & highlights (balayage, ombre), keratin & hair spa treatments, extensions
+- Skin Care: organic & O3+ premium facials, advanced skin treatments (anti-aging, pigmentation), threading & waxing, clean-up & tan removal
+- Spa & Wellness: classical relaxing spa, Swedish massage, deep tissue massage, aromatherapy, head & shoulder massage, steam & shower
+- Bridal & Makeup: HD/airbrush bridal makeup, party & event makeup, makeovers, mehendi & pre-bridal packages
+- Nail Studio: manicure, pedicure, nail art, acrylic & gel extensions
+- Men's Grooming: haircut & styling, beard grooming, men's facial, men's spa
+
+## Membership Packages (12-month validity)
+- Silver Plan — ₹32,000 (value ₹45,600): 12× relaxing massage (60 min), 12× haircut + wash
+- Gold Plan — ₹55,000 (value ₹75,600, most popular): 12× relaxing massage, 12× haircut + wash, 12× head massage, 6× O3+ premium facial
+- Platinum Plan — ₹75,000 (value ₹1,10,000): 9× relaxing massage, 6× manicure + pedicure, 6× haircut + wash, 6× O3+ premium facial, 6× full body waxing
+
+## Pages
+- /: Home — overview of services, packages, gallery, testimonials, booking
+- /about: Company story, values, team, why BrandRoot
+- /services: Full service catalog by category
+- /packages: Membership plans with pricing and FAQ
+- /gallery: Photo gallery (hair, skin, spa, makeup, nails, ambience)
+- /contact: Address, map, contact form, hours
+- /appointment: Online appointment booking form
+
+## Booking
+Book via the /appointment page, by phone at +91 7507 515 957, or on WhatsApp: https://wa.me/917507515957
