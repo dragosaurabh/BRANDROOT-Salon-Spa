@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Download } from "lucide-react";
 import { PageHero } from "@/components/layout/PageHero";
 import { Reveal } from "@/components/ui/Bits";
 import { SERVICE_CATEGORIES } from "@/data/services";
@@ -18,7 +18,16 @@ export default function ServicesPage() {
 
   return (
     <>
-      <PageHero title="Our Services" crumb="Our Services" />
+      <PageHero title="Our Services" crumb="Our Services">
+        <a
+          href="/brandroot-service-menu.pdf"
+          download="BrandRoot-Service-Menu.pdf"
+          className="btn btn-outline"
+          data-testid="download-rate-card-btn"
+        >
+          <Download size={15} /> Download Rate Card (PDF)
+        </a>
+      </PageHero>
       {SERVICE_CATEGORIES.map((cat, idx) => (
         <section
           key={cat.id}
@@ -69,6 +78,16 @@ export default function ServicesPage() {
             <Link to="/appointment" className="btn btn-gold" data-testid="services-cta-book-btn">
               Book a Consultation <ArrowRight size={15} />
             </Link>
+          </Reveal>
+          <Reveal delay={0.25}>
+            <a
+              href="/brandroot-service-menu.pdf"
+              download="BrandRoot-Service-Menu.pdf"
+              className="text-link"
+              data-testid="download-rate-card-bottom-link"
+            >
+              <Download size={14} /> Download the Full Service Menu
+            </a>
           </Reveal>
         </div>
       </section>

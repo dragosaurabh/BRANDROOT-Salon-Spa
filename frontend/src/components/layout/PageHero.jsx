@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Ornament } from "@/components/ui/Bits";
 
-export const PageHero = ({ title, crumb }) => (
+export const PageHero = ({ title, crumb, children }) => (
   <section className="page-hero">
     <div className="page-hero-glow" aria-hidden="true" />
     <div className="container page-hero-content">
@@ -28,6 +28,16 @@ export const PageHero = ({ title, crumb }) => (
         <span className="crumb-sep">◆</span>
         <span className="current">{crumb}</span>
       </motion.nav>
+      {children && (
+        <motion.div
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.45 }}
+          style={{ marginTop: 12 }}
+        >
+          {children}
+        </motion.div>
+      )}
     </div>
   </section>
 );

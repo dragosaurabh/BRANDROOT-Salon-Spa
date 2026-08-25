@@ -5,7 +5,7 @@
     left: 0;
     right: 0;
     z-index: 100;
-    transition: background-color 0.45s ease, border-color 0.45s ease, backdrop-filter 0.45s ease;
+    transition: background-color 0.45s ease, border-color 0.45s ease, backdrop-filter 0.45s ease, top 0.45s cubic-bezier(0.22, 1, 0.36, 1);
     border-bottom: 1px solid transparent;
 }
 .nav.scrolled {
@@ -27,6 +27,19 @@
     }
 }
 .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--accent-gold);
+}
+.nav-crest {
+    flex-shrink: 0;
+    transition: transform 0.5s ease;
+}
+.nav-logo:hover .nav-crest {
+    transform: rotate(8deg) scale(1.06);
+}
+.nav-logo-text {
     display: flex;
     flex-direction: column;
     line-height: 1.1;
@@ -184,9 +197,14 @@
     justify-content: center;
     overflow: hidden;
 }
+.hero-bg-wrap {
+    position: absolute;
+    inset: -3%;
+    will-change: transform;
+}
 .hero-bg {
     position: absolute;
-    inset: -2%;
+    inset: 0;
     background-size: cover;
     background-position: center;
     animation: kenburns 25s ease-in-out infinite alternate;
@@ -1278,4 +1296,157 @@
         right: 36px;
         bottom: 104px;
     }
+}
+
+/* ============ OFFER BAR ============ */
+.offer-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 120;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(90deg, #9a7b32 0%, #c8a44e 25%, #e2cc8a 50%, #c8a44e 75%, #9a7b32 100%);
+    color: #14110b;
+}
+.offer-inner {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 0 50px;
+}
+.offer-sparkle {
+    flex-shrink: 0;
+}
+.offer-msg {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+@media (max-width: 640px) {
+    .offer-msg {
+        font-size: 9.5px;
+        letter-spacing: 0.7px;
+    }
+}
+.offer-link {
+    display: none;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    white-space: nowrap;
+}
+@media (min-width: 768px) {
+    .offer-link {
+        display: inline-flex;
+    }
+}
+.offer-close {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(20, 17, 11, 0.12);
+    border: none;
+    border-radius: 50%;
+    color: #14110b;
+    transition: background-color 0.3s ease;
+}
+.offer-close:hover {
+    background: rgba(20, 17, 11, 0.28);
+}
+
+/* ============ HERO PREMIUM DETAILS ============ */
+.hero-crest {
+    color: var(--accent-gold);
+    opacity: 0.95;
+    filter: drop-shadow(0 0 18px rgba(200, 164, 78, 0.35));
+}
+.hero-glow-rose {
+    position: absolute;
+    right: 6%;
+    top: 16%;
+    width: 420px;
+    height: 420px;
+    background: radial-gradient(ellipse at center, rgba(201, 160, 160, 0.08) 0%, transparent 65%);
+    pointer-events: none;
+}
+.hero-frame {
+    position: absolute;
+    width: 110px;
+    height: 110px;
+    z-index: 3;
+    opacity: 0;
+    animation: frameIn 1.4s ease 1.6s forwards;
+    display: none;
+}
+@media (min-width: 900px) {
+    .hero-frame {
+        display: block;
+    }
+}
+.hero-frame-tl {
+    top: 118px;
+    left: 34px;
+    border-top: 1px solid rgba(200, 164, 78, 0.55);
+    border-left: 1px solid rgba(200, 164, 78, 0.55);
+}
+.hero-frame-br {
+    bottom: 66px;
+    right: 34px;
+    border-bottom: 1px solid rgba(200, 164, 78, 0.55);
+    border-right: 1px solid rgba(200, 164, 78, 0.55);
+}
+@keyframes frameIn {
+    to {
+        opacity: 0.6;
+    }
+}
+.shimmer-text {
+    font-style: italic;
+    background: linear-gradient(110deg, #d4b76a 20%, #f6e7b8 40%, #d4b76a 60%);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    animation: shimmer 5s linear infinite;
+}
+@keyframes shimmer {
+    to {
+        background-position: -200% 0;
+    }
+}
+
+/* Mobile menu numbered links */
+.mobile-menu-link {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+}
+.mml-num {
+    font-family: var(--font-body);
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--accent-gold);
+    opacity: 0.8;
 }

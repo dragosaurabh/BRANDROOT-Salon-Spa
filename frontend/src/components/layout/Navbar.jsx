@@ -3,8 +3,9 @@ import { NavLink, Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Instagram, Facebook, Youtube } from "lucide-react";
 import { NAV_LINKS, COMPANY } from "@/data/content";
+import { Crest } from "@/components/ui/Crest";
 
-export const Navbar = () => {
+export const Navbar = ({ topOffset = 0 }) => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const location = useLocation();
@@ -25,11 +26,14 @@ export const Navbar = () => {
 
   return (
     <>
-      <header className={`nav ${scrolled ? "scrolled" : ""}`}>
+      <header className={`nav ${scrolled ? "scrolled" : ""}`} style={{ top: topOffset }}>
         <div className="container nav-inner">
           <Link to="/" className="nav-logo" data-testid="nav-logo" aria-label="BrandRoot Salon & Spa — Home">
-            <span className="brand">BRANDROOT</span>
-            <span className="brand-sub">Salon &amp; Spa</span>
+            <Crest size={32} className="nav-crest" />
+            <span className="nav-logo-text">
+              <span className="brand">BRANDROOT</span>
+              <span className="brand-sub">Salon &amp; Spa</span>
+            </span>
           </Link>
           <nav className="nav-links" aria-label="Main navigation">
             {NAV_LINKS.map((l) => (
@@ -80,6 +84,14 @@ export const Navbar = () => {
             >
               <X size={22} />
             </button>
+            <motion.div
+              initial={{ opacity: 0, y: -14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1, duration: 0.5 }}
+              style={{ color: "var(--accent-gold)", marginBottom: 18, textAlign: "center" }}
+            >
+              <Crest size={44} />
+            </motion.div>
             {NAV_LINKS.map((l, i) => (
               <motion.div
                 key={l.to}
@@ -93,6 +105,7 @@ export const Navbar = () => {
                   className={({ isActive }) => `mobile-menu-link ${isActive ? "active" : ""}`}
                   data-testid={`mobile-nav-link-${l.label.toLowerCase().replace(/\s+/g, "-")}`}
                 >
+                  <span className="mml-num">0{i + 1}</span>
                   {l.label}
                 </NavLink>
               </motion.div>

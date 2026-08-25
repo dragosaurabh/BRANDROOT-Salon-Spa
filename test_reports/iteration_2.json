@@ -1,0 +1,26 @@
+{
+  "summary": "Frontend-only iteration_2 testing for BrandRoot Salon & Spa. Focused on the three new features (Festive Offers Strip, Rate Card PDF download, Premium hero/nav upgrade) plus light regression on gallery lightbox, appointment form, and responsive overflow. All 7 targeted acceptance criteria pass. No console errors, no horizontal overflow at 320px or 390px.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "Navbar (all pages)", "issues": ["Navbar element resolves to position:static with empty inline top (expected inline style top:42px while offer bar is open per spec). Visually the layout is still correct because the offer bar is fixed and navbar flows below it, but the documented 'topOffset -> inline top' behaviour is not actually applied to the <nav> element. Non-blocking cosmetic mismatch with spec."]}
+    ]
+  },
+  "test_report_links": [],
+  "action_items": [
+    "(Optional) Verify Navbar.jsx actually applies the topOffset prop as inline style={{top: `${topOffset}px`}} together with position:fixed. Current computed style: position:static, top:auto in both states. Visual layout still works so this is P3."
+  ],
+  "critical_code_review_comments": [
+    "Spec says 'Navbar has inline style top:42px while offer bar open, top:0 after dismissal' but the rendered <nav> has position:static and no inline top; either the prop is not consumed or the CSS is overriding it. Consider verifying to keep behaviour deterministic across breakpoints."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A (skipped)", "frontend": "100% (7/7 acceptance criteria)"},
+  "test_credentials": "None — public static site",
+  "seed_data_creation": "None",
+  "retest_needed": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Verified: (1) offer-bar visible on first visit, offer-message rotates every ~5.5s (verified change after 6s: 'Bridal Season Special...' -> 'Diwali Glow Offer...'), offer-book-link href='/appointment'. (2) offer-close-btn hides bar; sessionStorage.br-offer-dismissed=1 persists across reload (bar count=0 after reload). (3) /brandroot-service-menu.pdf returns HTTP 200 content-type application/pdf (50828 bytes). download-rate-card-btn href='/brandroot-service-menu.pdf' download='BrandRoot-Service-Menu.pdf'; download-rate-card-bottom-link present with same href. (4) Hero renders with crest+staggered title+Wellness shimmer; hero-book-appointment-btn -> /appointment. (5) nav-logo shows crest+BRANDROOT, all nav-link-* work. (6) Mobile 390px: offer bar visible & non-overflowing; nav-burger-btn opens overlay with 6 mobile-nav-link-* entries; first link text '01Home' confirms numbered links; navigation to /services works. (7) Regression: gallery lightbox opens/closes; appointment form testids intact; 320px scrollWidth=320 (no overflow); 390px scrollWidth=390 (no overflow); zero console errors on Home/Services/Appointment/Gallery. Nav burger testid is 'nav-burger-btn' (not 'mobile-menu-toggle').",
+  "rca of the issue": "N/A — no functional bugs found."
+}

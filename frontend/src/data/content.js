@@ -66,6 +66,12 @@ export const TESTIMONIALS = [
   },
 ];
 
+export const OFFERS = [
+  "Bridal Season Special — Complimentary Pre-Bridal Glow Facial with Every Bridal Package",
+  "Diwali Glow Offer — 20% Off O3+ Premium Facials This Festive Season",
+  "Couples Spa Retreat — 50% Off the Second Classical Relaxing Spa",
+];
+
 export const TIME_SLOTS = (() => {
   const slots = [];
   for (let h = 10; h <= 20; h++) {
