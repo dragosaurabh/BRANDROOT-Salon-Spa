@@ -72,6 +72,27 @@ export const OFFERS = [
   "Couples Spa Retreat — 50% Off the Second Classical Relaxing Spa",
 ];
 
+export const HERO_SLIDES = [
+  {
+    l1: "Where Luxury",
+    l2pre: "Meets",
+    em: "Wellness",
+    sub: "Nashik's most luxurious salon & spa experience. Expert hair care, rejuvenating skin treatments, relaxing spa therapies & stunning bridal transformations.",
+  },
+  {
+    l1: "Bridal Season,",
+    l2pre: "Beautifully",
+    em: "Perfected",
+    sub: "Flawless HD & airbrush bridal artistry, pre-bridal glow rituals and mehendi — your big day, crafted to perfection.",
+  },
+  {
+    l1: "This Festive Season,",
+    l2pre: "Simply",
+    em: "Glow",
+    sub: "O3+ premium facials, radiant hair colour and festive glam — arrive glowing at every celebration.",
+  },
+];
+
 export const TIME_SLOTS = (() => {
   const slots = [];
   for (let h = 10; h <= 20; h++) {

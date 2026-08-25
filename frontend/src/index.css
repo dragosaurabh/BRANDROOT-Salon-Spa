@@ -77,6 +77,8 @@
 html {
     -webkit-text-size-adjust: 100%;
     overflow-x: clip;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
 body {
@@ -99,17 +101,9 @@ body {
 }
 
 ::-webkit-scrollbar {
-    width: 10px;
-}
-::-webkit-scrollbar-track {
-    background: #0a0a0a;
-}
-::-webkit-scrollbar-thumb {
-    background: #2a251d;
-    border-radius: 6px;
-}
-::-webkit-scrollbar-thumb:hover {
-    background: var(--accent-gold);
+    display: none;
+    width: 0;
+    height: 0;
 }
 
 a {

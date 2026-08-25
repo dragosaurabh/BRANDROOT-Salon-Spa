@@ -1,17 +1,30 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
-import { ArrowRight, ChevronDown, Star, Users, MapPin } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 import { IMG } from "@/data/images";
+import { HERO_SLIDES } from "@/data/content";
 
 const ease = [0.22, 1, 0.36, 1];
+
+const MARQUEE_ITEMS = [
+  "★ 4.8 Google Rating",
+  "350+ Happy Clients",
+  "Hair",
+  "Skin",
+  "Spa",
+  "Bridal",
+  "Nails",
+  "Men's Grooming",
+];
 
 const Line = ({ children, delay }) => (
   <span className="line-mask">
     <motion.span
       style={{ display: "inline-block" }}
       initial={{ y: "115%" }}
-      animate={{ y: 0 }}
-      transition={{ duration: 1, delay, ease }}
+      animate={{ y: 0, transition: { duration: 0.95, delay, ease } }}
+      exit={{ y: "-115%", transition: { duration: 0.55, ease: [0.6, 0, 0.4, 1] } }}
     >
       {children}
     </motion.span>
@@ -19,6 +32,21 @@ const Line = ({ children, delay }) => (
 );
 
 export const Hero = () => {
+  const [idx, setIdx] = useState(0);
+  const [booted, setBooted] = useState(false);
+
+  useEffect(() => {
+    const boot = setTimeout(() => setBooted(true), 2600);
+    const id = setInterval(() => setIdx((i) => (i + 1) % HERO_SLIDES.length), 7000);
+    return () => {
+      clearTimeout(boot);
+      clearInterval(id);
+    };
+  }, []);
+
+  const slide = HERO_SLIDES[idx];
+  const d = booted ? [0.08, 0.2, 0.42] : [0.6, 0.75, 1.05];
+
   return (
   <section className="hero" data-testid="hero-section">
     <video
@@ -64,22 +92,24 @@ export const Hero = () => {
         Welcome to BrandRoot
       </motion.p>
 
-      <h1 className="hero-title" data-testid="hero-title">
-        <Line delay={0.6}>Where Luxury</Line>
-        <Line delay={0.75}>
-          Meets <em className="shimmer-text">Wellness</em>
-        </Line>
-      </h1>
-
-      <motion.p
-        className="hero-subtitle"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 1.05, ease }}
-      >
-        Nashik's most luxurious salon &amp; spa experience. Expert hair care, rejuvenating skin
-        treatments, relaxing spa therapies &amp; stunning bridal transformations.
-      </motion.p>
+      <AnimatePresence mode="wait">
+        <motion.div key={idx} className="hero-headline">
+          <h1 className="hero-title" data-testid="hero-title">
+            <Line delay={d[0]}>{slide.l1}</Line>
+            <Line delay={d[1]}>
+              {slide.l2pre} <em className="shimmer-text">{slide.em}</em>
+            </Line>
+          </h1>
+          <motion.p
+            className="hero-subtitle"
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0, transition: { duration: 0.8, delay: d[2], ease } }}
+            exit={{ opacity: 0, y: -12, transition: { duration: 0.4 } }}
+          >
+            {slide.sub}
+          </motion.p>
+        </motion.div>
+      </AnimatePresence>
 
       <motion.div
         className="hero-ctas"
@@ -94,40 +124,54 @@ export const Hero = () => {
           Explore Services
         </Link>
       </motion.div>
+
+      <motion.div
+        className="hero-slide-dots"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.6, duration: 0.8 }}
+      >
+        {HERO_SLIDES.map((_, i) => (
+          <button
+            key={i}
+            className={`hs-dot ${i === idx ? "active" : ""}`}
+            onClick={() => setIdx(i)}
+            aria-label={`Show headline ${i + 1}`}
+            data-testid={`hero-slide-dot-${i}`}
+          />
+        ))}
+      </motion.div>
     </div>
 
     <motion.div
-      className="hero-scroll"
+      className="hero-scroll-cue"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ delay: 1.9, duration: 1 }}
+      transition={{ delay: 2, duration: 1 }}
       aria-hidden="true"
     >
-      Scroll
-      <ChevronDown size={16} />
+      <span className="cue-text">Scroll</span>
+      <span className="cue-line">
+        <span className="cue-dot" />
+      </span>
     </motion.div>
 
-    <div className="hero-info-wrap">
-      <motion.div
-        className="hero-info-bar"
-        initial={{ opacity: 0, y: 22 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.55, duration: 0.85, ease }}
-        data-testid="hero-info-bar"
-      >
-        <span className="hib-item">
-          <Star size={13} fill="currentColor" /> 4.8 Google Rating
-        </span>
-        <span className="hib-sep">◆</span>
-        <span className="hib-item">
-          <Users size={13} /> 350+ Happy Clients
-        </span>
-        <span className="hib-sep hib-hide-mobile">◆</span>
-        <span className="hib-item hib-hide-mobile">
-          <MapPin size={13} /> Opp. City Centre Mall, Nashik
-        </span>
-      </motion.div>
+    <div className="hero-marquee" aria-hidden="true">
+      <div className="marquee-track">
+        {[0, 1].map((half) => (
+          <div key={half} style={{ display: "flex" }}>
+            {[0, 1, 2].map((rep) =>
+              MARQUEE_ITEMS.map((item, i) => (
+                <span key={`${half}-${rep}-${i}`}>
+                  {item} <i>◆</i>
+                </span>
+              ))
+            )}
+          </div>
+        ))}
+      </div>
     </div>
   </section>
   );
 };
+

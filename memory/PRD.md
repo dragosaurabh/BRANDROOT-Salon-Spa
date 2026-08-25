@@ -42,6 +42,11 @@ Complete rebuild of brandrootsalon.com: a jaw-droppingly beautiful, mobile-first
 - Header/menu phone optimization: 60px header, 32px logo icon, compact brand text; mobile menu now opens with circular clip-path reveal from burger, numbered serif links, emblem, socials, Book Now + phone number row
 - NOTE: headless test browser lacks H.264 — webm fallback verified playing (readyState 4); real devices use mp4
 
+## Iteration 5 (June 2026) — Darker Hero, Seasonal Headlines, Custom Scroll
+- Hero back to darker premium grade (video brightness .62, stronger overlay/vignette), marquee loop restored at bottom
+- Seasonal rotating headlines (HERO_SLIDES in content.js): Luxury/Wellness → Bridal Season/Perfected → Festive/Glow; masked line transitions every 7s + clickable hairline slide dots
+- Native browser scrollbar hidden globally; custom indicators: gold diamond scroll rail on right edge (desktop, ScrollIndicator.jsx) + in-hero "Scroll" line with dropping gold dot
+
 ## Iteration 3 (June 2026) — Real Branding & Design Elevation
 - Real BrandRoot logo integrated: recreated owner's ornate sun-crest emblem as transparent PNGs (/public/assets/logo-full.png, logo-mark.png, logo-icon.png via /app/scripts/process_logo.py chroma-key pipeline); used in navbar, hero, mobile menu, footer, favicon
 - Real salon photos (customer assets) used in About preview (lounge), About story (backlit logo wall), Gallery Ambience (3 real photos)

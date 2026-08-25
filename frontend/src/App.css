@@ -243,17 +243,17 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: brightness(0.8) saturate(1.08);
+    filter: brightness(0.62) saturate(1.08);
 }
 .hero-vignette {
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse at center, transparent 42%, rgba(10, 10, 10, 0.6) 100%);
+    background: radial-gradient(ellipse at center, transparent 34%, rgba(10, 10, 10, 0.72) 100%);
 }
 .hero-overlay {
     position: absolute;
     inset: 0;
-    background: var(--gradient-hero);
+    background: linear-gradient(180deg, rgba(10, 10, 10, 0.55) 0%, rgba(10, 10, 10, 0.32) 30%, rgba(10, 10, 10, 0.55) 65%, rgba(10, 10, 10, 0.97) 100%);
 }
 .hero-glow {
     position: absolute;
@@ -269,12 +269,12 @@
     position: relative;
     z-index: 2;
     text-align: center;
-    padding: 96px 20px 128px;
+    padding: 92px 20px 140px;
     max-width: 920px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 18px;
 }
 .hero-pre {
     font-size: 11px;
@@ -330,23 +330,118 @@
         max-width: none;
     }
 }
-.hero-scroll {
+.hero-scroll-cue {
     position: absolute;
-    bottom: 92px;
+    bottom: 62px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 3;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2px;
-    color: var(--text-muted);
-    font-size: 10px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
+    gap: 8px;
 }
-.hero-scroll svg {
-    animation: scrollPulse 2s ease-in-out infinite;
+.cue-text {
+    font-size: 9px;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+.cue-line {
+    position: relative;
+    width: 1px;
+    height: 44px;
+    background: rgba(200, 164, 78, 0.22);
+}
+.cue-dot {
+    position: absolute;
+    top: 0;
+    left: -2px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent-gold);
+    box-shadow: 0 0 10px rgba(200, 164, 78, 0.8);
+    animation: dropDot 2.2s ease-in-out infinite;
+}
+@keyframes dropDot {
+    0% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+    18% {
+        opacity: 1;
+    }
+    78% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(38px);
+        opacity: 0;
+    }
+}
+
+/* Hero headline slides */
+.hero-headline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    min-height: 220px;
+}
+@media (min-width: 1024px) {
+    .hero-headline {
+        min-height: 300px;
+    }
+}
+.hero-slide-dots {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 12px;
+}
+.hs-dot {
+    width: 26px;
+    height: 2px;
+    border: none;
+    padding: 0;
+    border-radius: 2px;
+    background: rgba(200, 164, 78, 0.25);
+    transition: background-color 0.4s ease, width 0.4s ease;
+    cursor: pointer;
+}
+.hs-dot.active {
+    background: var(--accent-gold);
+    width: 42px;
+    box-shadow: 0 0 8px rgba(200, 164, 78, 0.5);
+}
+
+/* Global scroll rail */
+.scroll-rail {
+    position: fixed;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 122px;
+    width: 1px;
+    background: rgba(200, 164, 78, 0.18);
+    z-index: 85;
+    display: none;
+}
+@media (min-width: 1024px) {
+    .scroll-rail {
+        display: block;
+    }
+}
+.scroll-rail-thumb {
+    position: absolute;
+    left: -3px;
+    top: -3px;
+    width: 7px;
+    height: 7px;
+    background: var(--accent-gold);
+    box-shadow: 0 0 10px rgba(200, 164, 78, 0.7);
+    display: block;
 }
 
 /* Hero info bar */
@@ -395,11 +490,8 @@
     .hib-hide-mobile {
         display: none !important;
     }
-    .hero-scroll {
+    .hero-scroll-cue {
         display: none;
-    }
-    .hero-info-wrap {
-        bottom: calc(88px + env(safe-area-inset-bottom));
     }
     .hero-info-bar {
         gap: 10px;

@@ -6,6 +6,7 @@ import { Footer } from "./Footer";
 import { OfferBar } from "./OfferBar";
 import { Preloader } from "./Preloader";
 import { Floaters } from "@/components/floating/Floaters";
+import { ScrollIndicator } from "@/components/ui/ScrollIndicator";
 import { initLenis, scrollToTop } from "@/hooks/useSmoothScroll";
 
 export const Layout = ({ children }) => {
@@ -56,6 +57,7 @@ export const Layout = ({ children }) => {
       </motion.main>
       <Footer />
       <Floaters />
+      <ScrollIndicator />
     </>
   );
 };
