@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { NavLink, Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence, useScroll } from "framer-motion";
-import { X, Instagram, Facebook, Youtube } from "lucide-react";
+import { X, Instagram, Facebook, Youtube, Phone } from "lucide-react";
 import { NAV_LINKS, COMPANY } from "@/data/content";
 
 export const Navbar = ({ topOffset = 0 }) => {
@@ -71,10 +71,10 @@ export const Navbar = ({ topOffset = 0 }) => {
         {open && (
           <motion.div
             className="mobile-menu"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.35 }}
+            initial={{ clipPath: "circle(0% at calc(100% - 46px) 44px)" }}
+            animate={{ clipPath: "circle(150% at calc(100% - 46px) 44px)" }}
+            exit={{ clipPath: "circle(0% at calc(100% - 46px) 44px)" }}
+            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
             data-testid="mobile-menu-overlay"
           >
             <button
@@ -131,6 +131,9 @@ export const Navbar = ({ topOffset = 0 }) => {
               <Link to="/appointment" className="btn btn-gold" data-testid="mobile-menu-book-btn">
                 Book Now
               </Link>
+              <a href={COMPANY.phoneHref} className="menu-phone" data-testid="mobile-menu-phone-link">
+                <Phone size={13} /> {COMPANY.phone}
+              </a>
             </motion.div>
           </motion.div>
         )}

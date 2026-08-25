@@ -1,20 +1,9 @@
 import { Link } from "react-router-dom";
-import { motion, useMotionValue, useTransform } from "framer-motion";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { motion } from "framer-motion";
+import { ArrowRight, ChevronDown, Star, Users, MapPin } from "lucide-react";
 import { IMG } from "@/data/images";
 
 const ease = [0.22, 1, 0.36, 1];
-
-const MARQUEE_ITEMS = [
-  "★ 4.8 Google Rating",
-  "350+ Happy Clients",
-  "Hair",
-  "Skin",
-  "Spa",
-  "Bridal",
-  "Nails",
-  "Men's Grooming",
-];
 
 const Line = ({ children, delay }) => (
   <span className="line-mask">
@@ -30,27 +19,31 @@ const Line = ({ children, delay }) => (
 );
 
 export const Hero = () => {
-  const mx = useMotionValue(0);
-  const my = useMotionValue(0);
-  const bgX = useTransform(mx, [-0.5, 0.5], [14, -14]);
-  const bgY = useTransform(my, [-0.5, 0.5], [9, -9]);
-  const glowX = useTransform(mx, [-0.5, 0.5], [-30, 30]);
-
-  const onMove = (e) => {
-    mx.set(e.clientX / window.innerWidth - 0.5);
-    my.set(e.clientY / window.innerHeight - 0.5);
-  };
-
   return (
-  <section className="hero" data-testid="hero-section" onMouseMove={onMove}>
-    <motion.div className="hero-bg-wrap" style={{ x: bgX, y: bgY }}>
-      <div className="hero-bg" style={{ backgroundImage: `url(${IMG.hero})` }} role="img" aria-label="Luxury spa interior with warm candlelight and hot stone treatment bed" />
-    </motion.div>
+  <section className="hero" data-testid="hero-section">
+    <video
+      className="hero-video"
+      ref={(el) => {
+        if (el) {
+          el.muted = true;
+          el.play().catch(() => {});
+        }
+      }}
+      autoPlay
+      muted
+      loop
+      playsInline
+      preload="auto"
+      poster={IMG.hero}
+      aria-hidden="true"
+      data-testid="hero-video"
+    >
+      <source src="/assets/hero-video.mp4" type="video/mp4" />
+      <source src="/assets/hero-video.webm" type="video/webm" />
+    </video>
     <div className="hero-overlay" />
-    <motion.div className="hero-glow" style={{ x: glowX }} aria-hidden="true" />
-    <div className="hero-glow-rose" aria-hidden="true" />
-    <div className="hero-frame hero-frame-tl" aria-hidden="true" />
-    <div className="hero-frame hero-frame-br" aria-hidden="true" />
+    <div className="hero-vignette" aria-hidden="true" />
+    <div className="hero-glow" aria-hidden="true" />
 
     <div className="hero-content">
       <motion.div
@@ -107,27 +100,33 @@ export const Hero = () => {
       className="hero-scroll"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ delay: 1.8, duration: 1 }}
+      transition={{ delay: 1.9, duration: 1 }}
       aria-hidden="true"
     >
       Scroll
       <ChevronDown size={16} />
     </motion.div>
 
-    <div className="hero-marquee" aria-hidden="true">
-      <div className="marquee-track">
-        {[0, 1].map((half) => (
-          <div key={half} style={{ display: "flex" }}>
-            {[0, 1, 2].map((rep) =>
-              MARQUEE_ITEMS.map((item, i) => (
-                <span key={`${half}-${rep}-${i}`}>
-                  {item} <i>◆</i>
-                </span>
-              ))
-            )}
-          </div>
-        ))}
-      </div>
+    <div className="hero-info-wrap">
+      <motion.div
+        className="hero-info-bar"
+        initial={{ opacity: 0, y: 22 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1.55, duration: 0.85, ease }}
+        data-testid="hero-info-bar"
+      >
+        <span className="hib-item">
+          <Star size={13} fill="currentColor" /> 4.8 Google Rating
+        </span>
+        <span className="hib-sep">◆</span>
+        <span className="hib-item">
+          <Users size={13} /> 350+ Happy Clients
+        </span>
+        <span className="hib-sep hib-hide-mobile">◆</span>
+        <span className="hib-item hib-hide-mobile">
+          <MapPin size={13} /> Opp. City Centre Mall, Nashik
+        </span>
+      </motion.div>
     </div>
   </section>
   );

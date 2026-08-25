@@ -1,20 +1,36 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Navbar } from "./Navbar";
 import { Footer } from "./Footer";
 import { OfferBar } from "./OfferBar";
+import { Preloader } from "./Preloader";
 import { Floaters } from "@/components/floating/Floaters";
 import { initLenis, scrollToTop } from "@/hooks/useSmoothScroll";
 
 export const Layout = ({ children }) => {
   const location = useLocation();
   const [offerOpen, setOfferOpen] = useState(() => sessionStorage.getItem("br-offer-dismissed") !== "1");
+  const [intro, setIntro] = useState(() => sessionStorage.getItem("br-intro-seen") !== "1");
 
   const dismissOffer = () => {
     setOfferOpen(false);
     sessionStorage.setItem("br-offer-dismissed", "1");
   };
+
+  useEffect(() => {
+    if (!intro) return;
+    document.body.style.overflow = "hidden";
+    const t = setTimeout(() => {
+      setIntro(false);
+      sessionStorage.setItem("br-intro-seen", "1");
+      document.body.style.overflow = "";
+    }, 2500);
+    return () => {
+      clearTimeout(t);
+      document.body.style.overflow = "";
+    };
+  }, [intro]);
 
   useEffect(() => {
     initLenis();
@@ -27,6 +43,7 @@ export const Layout = ({ children }) => {
   return (
     <>
       <div className="noise-overlay" aria-hidden="true" />
+      <AnimatePresence>{intro && <Preloader />}</AnimatePresence>
       <OfferBar open={offerOpen} onDismiss={dismissOffer} />
       <Navbar topOffset={offerOpen ? 42 : 0} />
       <motion.main

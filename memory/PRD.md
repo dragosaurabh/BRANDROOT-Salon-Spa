@@ -36,6 +36,12 @@ Complete rebuild of brandrootsalon.com: a jaw-droppingly beautiful, mobile-first
 - Premium hero/nav: gold crest SVG monogram (ui/Crest.jsx) in navbar + hero + mobile menu, mouse-parallax hero bg, shimmer on "Wellness", corner frames, gold button sheen sweep, numbered mobile menu links
 - Testing agent iteration_2: 100% pass (7/7)
 
+## Iteration 4 (June 2026) — Signature Loader, Video Hero, Phone-Optimized Header
+- Signature preloader: golden emblem intro (Preloader.jsx) with expanding gold line + italic tagline, once per session (sessionStorage br-intro-seen), 2.5s, elegant fade exit
+- Video hero: self-hosted candle-flame ambience video /public/assets/hero-video.mp4 (Pexels 6724697, 720p H.264 3.5MB) + hero-video.webm (VP9 904KB fallback, transcoded via imageio-ffmpeg), poster = cinematic hero image; removed mouse-parallax, Ken Burns bg, corner frames, marquee → replaced with glassy hero info bar (rating ◆ clients ◆ location); text shadows for legibility
+- Header/menu phone optimization: 60px header, 32px logo icon, compact brand text; mobile menu now opens with circular clip-path reveal from burger, numbered serif links, emblem, socials, Book Now + phone number row
+- NOTE: headless test browser lacks H.264 — webm fallback verified playing (readyState 4); real devices use mp4
+
 ## Iteration 3 (June 2026) — Real Branding & Design Elevation
 - Real BrandRoot logo integrated: recreated owner's ornate sun-crest emblem as transparent PNGs (/public/assets/logo-full.png, logo-mark.png, logo-icon.png via /app/scripts/process_logo.py chroma-key pipeline); used in navbar, hero, mobile menu, footer, favicon
 - Real salon photos (customer assets) used in About preview (lounge), About story (backlit logo wall), Gallery Ambience (3 real photos)
