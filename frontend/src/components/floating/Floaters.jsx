@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
-import { Phone, ArrowUp, ArrowRight } from "lucide-react";
+import { Phone, ArrowUp } from "lucide-react";
 import { COMPANY } from "@/data/content";
 import { scrollToTop } from "@/hooks/useSmoothScroll";
 
@@ -13,7 +12,6 @@ const WhatsAppIcon = () => (
 
 export const Floaters = () => {
   const [showTop, setShowTop] = useState(false);
-  const location = useLocation();
 
   useEffect(() => {
     const onScroll = () => setShowTop(window.scrollY > 600);
@@ -23,32 +21,6 @@ export const Floaters = () => {
 
   return (
     <>
-      {location.pathname !== "/appointment" && (
-        <motion.div
-          className="mobile-dock"
-          initial={{ y: 96 }}
-          animate={{ y: 0 }}
-          transition={{ delay: 1.1, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-          data-testid="mobile-dock"
-        >
-          <a href={COMPANY.phoneHref} className="dock-icon dock-call" aria-label="Call BrandRoot" data-testid="dock-call-btn">
-            <Phone size={19} />
-          </a>
-          <Link to="/appointment" className="dock-book" data-testid="dock-book-btn">
-            Book Now <ArrowRight size={14} />
-          </Link>
-          <a
-            href={COMPANY.whatsapp}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="dock-icon dock-wa"
-            aria-label="Chat on WhatsApp"
-            data-testid="dock-whatsapp-btn"
-          >
-            <WhatsAppIcon />
-          </a>
-        </motion.div>
-      )}
       <a
         href={COMPANY.whatsapp}
         target="_blank"

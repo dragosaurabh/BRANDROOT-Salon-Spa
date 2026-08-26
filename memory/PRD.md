@@ -56,9 +56,14 @@ Complete rebuild of brandrootsalon.com: a jaw-droppingly beautiful, mobile-first
 - A11y: --text-muted contrast raised to #8b8276
 - yarn build verified passing. NOTE: PageSpeed on preview URL tests the unminified DEV server — production deploy scores much higher; canonical/sitemap point to brandrootsalon.com (production domain)
 
-## Iteration 7 (June 2026) — Sticky Mobile Booking Dock
+## Iteration 7 (June 2026) — Sticky Mobile Booking Dock (REMOVED in Iteration 8)
 - Mobile dock (<768px, in Floaters.jsx): fixed glassy bottom bar with Call circle + gold "Book Now" pill + WhatsApp circle; safe-area padding; slides up on load; hidden on /appointment
 - Floating WhatsApp/Phone circles now desktop-only; back-to-top and hero marquee lifted above dock; footer bottom padded on mobile
+
+## Iteration 8 (June 2026) — Bug Fixes (user reported)
+- Hero video now renders on ALL viewports including phones (removed >=768px conditional in Hero.jsx)
+- Sticky mobile dock fully removed per user request; floating WhatsApp/Phone circles restored on mobile; dock CSS + mobile overrides deleted
+- Testing agent iteration_3: 100% pass — video plays on mobile (webm fallback in headless, currentTime advancing), dock absent, floats visible
 
 ## Iteration 3 (June 2026) — Real Branding & Design Elevation
 - Real BrandRoot logo integrated: recreated owner's ornate sun-crest emblem as transparent PNGs (/public/assets/logo-full.png, logo-mark.png, logo-icon.png via /app/scripts/process_logo.py chroma-key pipeline); used in navbar, hero, mobile menu, footer, favicon

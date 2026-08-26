@@ -34,10 +34,8 @@ const Line = ({ children, delay }) => (
 export const Hero = () => {
   const [idx, setIdx] = useState(0);
   const [booted, setBooted] = useState(false);
-  const [showVideo, setShowVideo] = useState(false);
 
   useEffect(() => {
-    setShowVideo(window.matchMedia("(min-width: 768px)").matches);
     const boot = setTimeout(() => setBooted(true), 2600);
     const id = setInterval(() => setIdx((i) => (i + 1) % HERO_SLIDES.length), 7000);
     return () => {
@@ -51,32 +49,26 @@ export const Hero = () => {
 
   return (
   <section className="hero" data-testid="hero-section">
-    {showVideo ? (
-      <video
-        className="hero-video"
-        ref={(el) => {
-          if (el) {
-            el.muted = true;
-            el.play().catch(() => {});
-          }
-        }}
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="auto"
-        poster={IMG.hero}
-        aria-hidden="true"
-        data-testid="hero-video"
-      >
-        <source src="/assets/hero-video.mp4" type="video/mp4" />
-        <source src="/assets/hero-video.webm" type="video/webm" />
-      </video>
-    ) : (
-      <div className="hero-bg-wrap" aria-hidden="true">
-        <div className="hero-bg" style={{ backgroundImage: `url(${IMG.hero})` }} />
-      </div>
-    )}
+    <video
+      className="hero-video"
+      ref={(el) => {
+        if (el) {
+          el.muted = true;
+          el.play().catch(() => {});
+        }
+      }}
+      autoPlay
+      muted
+      loop
+      playsInline
+      preload="auto"
+      poster={IMG.hero}
+      aria-hidden="true"
+      data-testid="hero-video"
+    >
+      <source src="/assets/hero-video.mp4" type="video/mp4" />
+      <source src="/assets/hero-video.webm" type="video/webm" />
+    </video>
     <div className="hero-overlay" />
     <div className="hero-vignette" aria-hidden="true" />
     <div className="hero-glow" aria-hidden="true" />
