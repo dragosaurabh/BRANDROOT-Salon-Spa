@@ -1733,6 +1733,84 @@
     color: var(--accent-gold);
 }
 
+/* ============ MOBILE DOCK ============ */
+.mobile-dock {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 95;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
+    background: rgba(10, 10, 10, 0.88);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid var(--border-subtle);
+}
+@media (min-width: 768px) {
+    .mobile-dock {
+        display: none;
+    }
+}
+.dock-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.dock-icon svg {
+    width: 19px;
+    height: 19px;
+}
+.dock-call {
+    border: 1px solid rgba(200, 164, 78, 0.45);
+    color: var(--accent-gold);
+}
+.dock-wa {
+    background: #25d366;
+    color: #fff;
+}
+.dock-book {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 46px;
+    border-radius: 999px;
+    background: var(--gradient-gold);
+    color: #14110b;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    box-shadow: var(--shadow-gold);
+}
+.dock-book:active {
+    transform: scale(0.98);
+}
+@media (max-width: 767px) {
+    .float-wa,
+    .float-phone {
+        display: none;
+    }
+    .float-top {
+        bottom: calc(84px + env(safe-area-inset-bottom));
+        right: 16px;
+    }
+    .footer-bottom {
+        padding-bottom: calc(90px + env(safe-area-inset-bottom));
+    }
+    .hero-marquee {
+        bottom: calc(66px + env(safe-area-inset-bottom));
+    }
+}
+
 /* ============ SIGNATURE PRELOADER ============ */
 .preloader {
     position: fixed;

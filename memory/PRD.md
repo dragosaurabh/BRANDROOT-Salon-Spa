@@ -56,6 +56,10 @@ Complete rebuild of brandrootsalon.com: a jaw-droppingly beautiful, mobile-first
 - A11y: --text-muted contrast raised to #8b8276
 - yarn build verified passing. NOTE: PageSpeed on preview URL tests the unminified DEV server — production deploy scores much higher; canonical/sitemap point to brandrootsalon.com (production domain)
 
+## Iteration 7 (June 2026) — Sticky Mobile Booking Dock
+- Mobile dock (<768px, in Floaters.jsx): fixed glassy bottom bar with Call circle + gold "Book Now" pill + WhatsApp circle; safe-area padding; slides up on load; hidden on /appointment
+- Floating WhatsApp/Phone circles now desktop-only; back-to-top and hero marquee lifted above dock; footer bottom padded on mobile
+
 ## Iteration 3 (June 2026) — Real Branding & Design Elevation
 - Real BrandRoot logo integrated: recreated owner's ornate sun-crest emblem as transparent PNGs (/public/assets/logo-full.png, logo-mark.png, logo-icon.png via /app/scripts/process_logo.py chroma-key pipeline); used in navbar, hero, mobile menu, footer, favicon
 - Real salon photos (customer assets) used in About preview (lounge), About story (backlit logo wall), Gallery Ambience (3 real photos)
