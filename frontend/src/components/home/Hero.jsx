@@ -80,7 +80,7 @@ export const Hero = () => {
         animate={{ opacity: 1, scale: 1, y: 0 }}
         transition={{ duration: 1.1, delay: 0.05, ease }}
       >
-        <img src="/assets/logo-mark.png" alt="BrandRoot ornamental golden emblem" className="hero-logo-mark" />
+        <img src="/assets/logo-mark.png" alt="BrandRoot Salon & Spa golden emblem" className="hero-logo-mark" />
       </motion.div>
 
       <motion.p

@@ -68,6 +68,12 @@
     --font-display: "Cormorant Garamond", serif;
     --font-serif: "Playfair Display", serif;
     --font-body: "Poppins", sans-serif;
+    --offer-h: 56px;
+}
+@media (min-width: 768px) {
+    :root {
+        --offer-h: 42px;
+    }
 }
 
 * {

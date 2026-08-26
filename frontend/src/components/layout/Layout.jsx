@@ -26,7 +26,7 @@ export const Layout = ({ children }) => {
       setIntro(false);
       sessionStorage.setItem("br-intro-seen", "1");
       document.body.style.overflow = "";
-    }, 2500);
+    }, 3400);
     return () => {
       clearTimeout(t);
       document.body.style.overflow = "";
@@ -46,7 +46,7 @@ export const Layout = ({ children }) => {
       <div className="noise-overlay" aria-hidden="true" />
       <AnimatePresence>{intro && <Preloader />}</AnimatePresence>
       <OfferBar open={offerOpen} onDismiss={dismissOffer} />
-      <Navbar topOffset={offerOpen ? 42 : 0} />
+      <Navbar offerOpen={offerOpen} />
       <motion.main
         key={location.pathname}
         initial={{ opacity: 0, y: 16 }}

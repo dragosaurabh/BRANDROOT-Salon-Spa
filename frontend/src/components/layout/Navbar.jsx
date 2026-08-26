@@ -4,7 +4,7 @@ import { motion, AnimatePresence, useScroll } from "framer-motion";
 import { X, Instagram, Facebook, Youtube, Phone } from "lucide-react";
 import { NAV_LINKS, COMPANY } from "@/data/content";
 
-export const Navbar = ({ topOffset = 0 }) => {
+export const Navbar = ({ offerOpen = false }) => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const location = useLocation();
@@ -26,7 +26,7 @@ export const Navbar = ({ topOffset = 0 }) => {
 
   return (
     <>
-      <header className={`nav ${scrolled ? "scrolled" : ""}`} style={{ top: topOffset }}>
+      <header className={`nav ${scrolled ? "scrolled" : ""} ${offerOpen ? "with-offer" : ""}`}>
         <motion.div className="nav-progress" style={{ scaleX: scrollYProgress }} aria-hidden="true" />
         <div className="container nav-inner">
           <Link to="/" className="nav-logo" data-testid="nav-logo" aria-label="BrandRoot Salon & Spa — Home">
